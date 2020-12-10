@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(#e5e5e5, transparent), linear-gradient(to top left, #90bcf5, transparent), linear-gradient(to top right, #f1e4bd, transparent); background-blend-mode:soft-light; 
+            color: rgb(15, 28, 56);
+            
+
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .box {
+            border-bottom: 1px solid #cfd2d8;
+            padding-bottom: 50px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        nav {
+            background-color: #063764;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            font-size: 0;
+            z-index: 99;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            padding: 10px 30px;
+            transition: .5s;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav a:hover {
+            background-color: #f6b804;
+            text-decoration: none;
+            color: rgb(15, 28, 56);
+           
+        }
+
+        .pic {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 80px auto;
+        }
+
+        .name {
+            margin-top: -60px;
+        }
+
+        p{
+            margin: 1px;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 32px;
+            margin:0;
+        }
+
+        h3 {
+            font-weight: normal;
+            font-size: 28px;
+        }
+
+        .about {
+            margin: 50px auto;
+        }
+
+        #q {
+            padding-top: 60px;
+            margin-top: 0px;
+            position: relative;
+        }
+
+        #b {
+            padding-top: 60px;
+            margin-top: 0px;
+            position: relative;
+        }
+
+        .box2 {
+            display: flex;
+            margin-top: 40px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .point {
+            width: 50%;
+            width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .aboutme {
+            width: 50%;
+            width: 370px;
+            line-height: 1.8;
+        }
+
+        .mark {
+            background: linear-gradient(transparent 65%, #f6b804 50%, #f6b804 90%, transparent 4%);
+            padding: 2px 1px;
+            -webkit-background: linear-gradient(transparent 65%, #f6b804 50%, #f6b804 90%, transparent 4%);
+            -moz-background: linear-gradient(transparent 65%, #f6b804 50%, #f6b804 90%, transparent 4%);
+            -o-background: linear-gradient(transparent 65%, #f6b804 50%, #f6b804 90%, transparent 4%);
+
+        }
+
+        li {
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        figure img {
+            width: 100px;
+            height: 50px;
+        }
+
+        .space {
+            width: 110px;
+            height: 160px;
+            display: none;
+        }
+
+        .experience {
+            margin-top: 50px;
+        }
+
+        .box3 {
+            display: flex;
+            margin-top: 40px;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .portfolio {
+            border-bottom: 1px solid #cfd2d8;
+            padding-bottom: 50px;
+            margin: 0 auto;
+            width: 90%;
+            margin-top: 50px;
+        }
+
+        .container-fluid {
+            /* margin-top:50px; */
+        }
+
+        .wrap {
+            padding: 20px;
+            transition: .5s;
+            
+        }
+
+        .wrap:hover{
+            opacity: 0.6;
+        }
+
+        .wrap img {
+            width: 100%;
+        }
+
+        .year {
+            border-right: 1px solid #bcc1c9;
+            padding-right: 50px;
+        }
+
+        .year li {
+            list-style: none;
+        }
+
+        .workname {
+            margin-left: 100px;
+        }
+
+        .workname li {
+            margin-left: -250px;
+            list-style: none;
+        }
+
+        .yearworkname {
+            display: none;
+        }
+
+        .yearworkname li {
+            list-style: none;
+        }
+
+
+        .contact {
+            margin-top: 50px;
+        }
+
+        .icon-home {
+            fill: rgb(15, 28, 56);
+            width: 20px;
+            height: 20px;
+            transition: .5s;
+        }
+
+        .contact a {
+            text-decoration: none;
+            color: rgb(15, 28, 56);
+            transition: .5s;
+        }
+
+
+
+        .set3:hover .icon-home {
+            fill: #f6b804;
+        }
+
+        .set3:hover a {
+            color: #f6b804;
+        }
+
+        footer {
+            background-color: #063764;
+            text-align: center;
+            color: white;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 12px;
+
+        }
+
+
+
+        @media screen and (max-width: 375px) {
+
+            nav a {
+
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
+            .pic {
+                margin: 60px auto;
+            }
+
+            .name {
+                margin-top: -40px;
+            }
+
+            .figset {
+                margin: 30px;
+            }
+
+            .point ul {
+                margin-left: 22px;
+            }
+
+            .aboutme {
+                text-align: left;
+                width: 300px;
+            }
+
+
+
+
+
+            .workname {
+                display: none;
+            }
+
+            .space {
+                display: block;
+
+            }
+
+            .yearworkname {
+                display: block;
+                padding: px;
+            }
+
+            .yearworkname li {
+                padding: 5px;
+                line-height: 1.5;
+            }
+
+            .set3 {
+                margin-bottom: 10px;
+            }
+
+        }
+
+        @media screen and (max-width: 507px) {
+            nav a {
+
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .figset {
+                margin: 30px 5px;
+            }
+
+        }
+
+
+        @media screen and (max-width: 740px) {
+            .year {
+                display: none;
+            }
+
+            .workname {
+                display: none;
+            }
+
+            .yearworkname {
+                display: block;
+                padding: px;
+            }
+
+            .yearworkname li {
+                padding: 5px;
+                line-height: 1.5;
+            }
+
+        }
+
+        @media screen and (max-width: 800px) {
+            .year {
+                border-right: 0;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <a href="#q">About</a>
+        <a href="#b">Portfolio</a>
+        <a href="#c">Experience</a>
+        <a href="#d">Contact</a>
+    </nav>
+    <div class="main">
+        <header>
+
+
+            <div class="box">
+                <div class="pic">
+                    <img src="images/IMG_0553.JPG" alt="">
+                </div>
+                <div class="name">
+                    <h2>李彥呈</h2>
+                    <p>Ian</p>
+                    <p>front engineer</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="box about" id="q">
+            <h3>About me</h3>
+            <div class="box2">
+                <div class="point">
+
+                    <ul>
+                        <li>1992.12.09</li>
+                        <li><mark class="mark">資策會前端工程師就業養成班</mark></li>
+                        <li><mark class="mark">日本語能力試験N1</mark></li>
+                        <li>廣告製作行銷企劃</li>
+                        <li>文化外国語専門学校</li>
+                        <li>中國文化大學-國際貿易學系</li>
+                    </ul>
+                </div>
+
+                <div class="aboutme">
+                    熱愛並<mark class="mark">擅長協調、行銷類</mark>的工作。關注客戶的內容喜好，有<mark
+                        class="mark">解決問題能力</mark>。喜歡新技術、產品、日本文化。對<mark
+                        class="mark">電商的營運有濃厚的興趣與熱情</mark>。堅信好的網頁規劃必將推動社會的進步，營造更美好的生活。
+                </div>
+            </div>
+        </div>
+
+        <div class="box skill">
+            <h3>My Skills</h3>
+            <div class="box2">
+                <div class="figset">
+                    <figure><img src="images/html-5.svg" alt=""></figure>
+                    <figcaption>HTML</figcaption>
+                </div>
+                <div class="figset">
+                    <figure><img src="images/css.svg" alt=""></figure>
+                    <figcaption>CSS</figcaption>
+                </div>
+                <div class="figset">
+                    <figure><img src="images/javasctip logo.png" alt=""></figure>
+                    <figcaption>JavaSctip</figcaption>
+                </div>
+                <div class="figset">
+                    <figure><img src="images/photoshop.svg" alt=""></figure>
+                    <figcaption>photoshop</figcaption>
+                </div>
+                <div class="figset ai">
+                    <figure><img src="images/ai.svg" alt=""></figure>
+                    <figcaption>illustrator</figcaption>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+
+        <div class=" portfolio" id="b">
+            <h3>Portfolio</h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+
+                    <div class=" col-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="wrap">
+                            <img src="https://fakeimg.pl/350x300/">
+                        </div>
+                    </div>
+                  
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="box experience" id="c">
+        <h3>Experience</h3>
+        <div class="box3">
+            <div class="year">
+                <ul>
+                    <li>2020.6</li>
+                    <li>2018.3</li>
+                    <li>2016.4</li>
+                    <li>2015.7</li>
+                </ul>
+            </div>
+            <div class="workname">
+                <ul>
+                    <li>資策會前端工程師就業養成班</li>
+                    <li>日商博設計股份有限公司-行銷企劃</li>
+                    <li>文化外国語専門学校</li>
+                    <li>美國打工度假</li>
+                </ul>
+            </div>
+
+            <div class="yearworkname">
+                <ul>
+                    <li>2020.6<br>資策會前端工程師就業養成班</li>
+                    <li>2018.3<br>日商博設計股份有限公司-行銷企劃</li>
+                    <li>2016.4<br>文化外国語専門学</li>
+                    <li>2015.7<br>美國打工度假</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="box contact" id="d">
+        <h3>Contact me</h3>
+        <div class="box2">
+            <div class="set3">
+                <a href="tel:0933019625">
+                    <svg class="icon-home">
+                        <use xlink:href="icomoon/symbol-defs.svg#icon-phone"></use>
+                    </svg>
+                    0933-019-625
+                </a>
+            </div>
+            <div class="set3">
+                <a href="mailto:ian8440@gmail.com">
+                    <svg class="icon-home">
+                        <use xlink:href="icomoon/symbol-defs.svg#icon-envelop"></use>
+                    </svg>
+
+                    ian8440@gmail.com
+
+
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <footer>Copyright &copy; 2020 Ian Lee 版權所有</footer>
+
+
+</body>
+
+</html>
